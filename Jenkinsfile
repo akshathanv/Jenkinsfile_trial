@@ -11,8 +11,6 @@ node {
   
   //stage 'Run SonarQube analysis'
   //sh "${mvnHome}/bin/mvn sonar:sonar -Dsonar.host.url=http://16.181.237.15:9000/"
-  
-   def mvnHome = tool 'M3'
   stage 'Artifactory configuration'
         def server = Artifactory.newServer url: 'https://hpedocker.southeastasia.cloudapp.azure.com/artifactory/mavensnapshot', username: 'admin', password: 'password'
         //def server = Artifactory.server SERVER_ID
