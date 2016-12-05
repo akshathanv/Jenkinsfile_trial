@@ -23,7 +23,7 @@ node {
         buildInfo.env.capture = true
 
     stage 'Exec Maven'
-        artifactoryMaven.run pom: 'Jpetstore_maven/pom.xml', goals: 'clean install', buildInfo: buildInfo
+        artifactoryMaven.run pom: '/var/jenkins_home/workspace/peapod_trial/Jpetstore_maven/pom.xml', goals: 'clean install', buildInfo: buildInfo
   
     stage 'Publish build info'
         server.publishBuildInfo buildInfo
