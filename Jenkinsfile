@@ -1,4 +1,4 @@
-node {
+/*node {
   stage 'Checkout'
   git url: 'https://github.com/akshathanv/Jpetstore_maven.git'   
   // Clean any locally modified files and ensure we are actually on origin/master
@@ -7,7 +7,7 @@ node {
   
   def mvnHome = tool 'M3'
   stage 'Build'
-  sh "${mvnHome}/bin/mvn clean install"
+  sh "${mvnHome}/bin/mvn clean install"*/
   
   //stage 'Run SonarQube analysis'
   //sh "${mvnHome}/bin/mvn sonar:sonar -Dsonar.host.url=http://16.181.237.15:9000/"
