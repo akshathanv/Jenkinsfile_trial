@@ -15,12 +15,12 @@ node {
         def server = Artifactory.newServer url: 'https://hpedocker.southeastasia.cloudapp.azure.com/artifactory/mavensnapshot', username: 'admin', password: 'password'
         //def server = Artifactory.server SERVER_ID
         def artifactoryMaven = Artifactory.newMavenBuild()
-        buildInfo.env.capture = true
-        //def mvnHome = tool 'M3'
+        def mvnHome = tool 'M3'
         artifactoryMaven.tool = M3 // Tool name from Jenkins configuration
         artifactoryMaven.deployer snapshotRepo:'mavensnapshot', server: server
         //artifactoryMaven.resolver releaseRepo:'libs-release', snapshotRepo:'libs-snapshot', server: server
         def buildInfo = Artifactory.newBuildInfo()
+        buildInfo.env.capture = true
 
     stage 'Exec Maven'
         artifactoryMaven.run pom: 'Jpetstore_maven/pom.xml', goals: 'clean install', buildInfo: 'buildInfo'
